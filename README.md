@@ -1,2 +1,5 @@
 # C_Sharp_Laboratory_work_2_course
-A repository for storing the laboratory work of Konstantin Lyutikov, a 2nd‑year student.
+
+This is a storage space for the laboratory work of a second‑year student.
+
+## Konstantin Lyut
