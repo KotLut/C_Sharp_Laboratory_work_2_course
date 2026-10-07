@@ -1,0 +1,7 @@
+C:\Users\KotLut\Desktop\КУРСЫ ВУЗА\VS-Sourse\LABA1_LC_CP\obj\Debug\LABA1_LC_CP.csproj.AssemblyReference.cache
+C:\Users\KotLut\Desktop\КУРСЫ ВУЗА\VS-Sourse\LABA1_LC_CP\obj\Debug\LABA1_LC_CP.csproj.CoreCompileInputs.cache
+C:\Users\KotLut\Desktop\КУРСЫ ВУЗА\VS-Sourse\LABA1_LC_CP\bin\Debug\LABA1_LC_CP.exe.config
+C:\Users\KotLut\Desktop\КУРСЫ ВУЗА\VS-Sourse\LABA1_LC_CP\bin\Debug\LABA1_LC_CP.exe
+C:\Users\KotLut\Desktop\КУРСЫ ВУЗА\VS-Sourse\LABA1_LC_CP\bin\Debug\LABA1_LC_CP.pdb
+C:\Users\KotLut\Desktop\КУРСЫ ВУЗА\VS-Sourse\LABA1_LC_CP\obj\Debug\LABA1_LC_CP.exe
+C:\Users\KotLut\Desktop\КУРСЫ ВУЗА\VS-Sourse\LABA1_LC_CP\obj\Debug\LABA1_LC_CP.pdb
