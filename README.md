@@ -299,6 +299,7 @@ x=5
 
 <img width="471" height="136" alt="image" src="https://github.com/user-attachments/assets/e0c0c63a-0145-4351-9cf2-aa625750354e" />
 <img width="427" height="123" alt="image" src="https://github.com/user-attachments/assets/83ce501d-4e7c-4fd7-9528-4a241a1b7fc2" />
+<img width="437" height="226" alt="image" src="https://github.com/user-attachments/assets/00d4c375-f750-4b10-9c38-c41b294ff7a8" />
 
 
 # Задание 3
@@ -325,7 +326,11 @@ x=5
 
 ### Тестирование
 
-Скриншоты результата работы программы
+<img width="1341" height="225" alt="image" src="https://github.com/user-attachments/assets/927d2bee-14de-4d74-81ff-728ada5da132" />
+<img width="478" height="235" alt="image" src="https://github.com/user-attachments/assets/f127530c-851e-476c-8283-f079f583acf7" />
+<img width="1314" height="172" alt="image" src="https://github.com/user-attachments/assets/64ae0010-b0aa-4d46-a62a-d3ebb0bcaffe" />
+
+
 
 ## Задача 2 (3.3)
 
@@ -350,7 +355,10 @@ x=9
 
 ### Тестирование
 
-Скриншоты результата работы программы
+<img width="428" height="129" alt="image" src="https://github.com/user-attachments/assets/63090969-b33f-47f7-ac23-0ffe94c3cc27" />
+<img width="1322" height="157" alt="image" src="https://github.com/user-attachments/assets/b6e730f1-0091-4bfb-9359-51878a7dd594" />
+<img width="642" height="246" alt="image" src="https://github.com/user-attachments/assets/bc37e387-2893-49b5-a009-e04a23046e63" />
+
 
 ## Задача 3 (3.5)
 
@@ -378,7 +386,10 @@ x=12567
 
 ### Тестирование
 
-Скриншоты результата работы программы
+<img width="414" height="122" alt="image" src="https://github.com/user-attachments/assets/e1026be1-06e0-4d56-bcd9-18959d4895a8" />
+<img width="604" height="280" alt="image" src="https://github.com/user-attachments/assets/f8fbe416-1bca-41ef-9108-0c039de51cac" />
+<img width="434" height="138" alt="image" src="https://github.com/user-attachments/assets/32de90ad-d57e-46de-a82c-675dac61bb33" />
+
 
 ## Задача 4 (3.7)
 
@@ -414,7 +425,10 @@ x=4
 
 ### Тестирование
 
-Скриншоты результата работы программы
+<img width="458" height="162" alt="image" src="https://github.com/user-attachments/assets/c53a5565-8bda-457d-a9ca-ec4454ebe622" />
+<img width="472" height="217" alt="image" src="https://github.com/user-attachments/assets/b8009728-edde-42ab-87f1-ed336212a4c9" />
+<img width="444" height="702" alt="image" src="https://github.com/user-attachments/assets/1ee000ed-14aa-4bf6-a9f7-d86bf7d25cc9" />
+
 
 ## Задача 5 (3.9)
 
@@ -453,7 +467,9 @@ x=4
 
 ### Тестирование
 
-Скриншоты результата работы программы
+<img width="465" height="195" alt="image" src="https://github.com/user-attachments/assets/e0fd536d-49ca-4500-a1d4-6cc62e1a4b08" />
+<img width="432" height="203" alt="image" src="https://github.com/user-attachments/assets/65cb051d-14f3-4ebf-b10f-2ba0fb15973f" />
+<img width="456" height="674" alt="image" src="https://github.com/user-attachments/assets/1a771a38-aec5-4053-9f41-dade8cb6ee75" />
 
 # Задание 4
 
@@ -482,9 +498,10 @@ x=2
 
 ### Тестирование
 
-<img width="461" height="322" alt="image" src="https://github.com/user-attachments/assets/2c735301-96f4-4106-b23a-d4cdff59e5f6" />  
-<img width="449" height="135" alt="image" src="https://github.com/user-attachments/assets/cb6e5bae-6f5d-44bf-a429-7ee99216d335" />  
-<img width="436" height="129" alt="image" src="https://github.com/user-attachments/assets/f77e60c0-2315-4440-b995-e97ab31a71b0" />
+<img width="625" height="202" alt="image" src="https://github.com/user-attachments/assets/de0ae4cb-6aac-4c74-8ac4-33ac487f9e0f" />
+<img width="500" height="188" alt="image" src="https://github.com/user-attachments/assets/b2b040a9-bb43-4b89-acb9-daf987f6f7a3" />
+<img width="509" height="182" alt="image" src="https://github.com/user-attachments/assets/e1a6b032-b1f7-4a46-8965-0b8e18b9ea61" />
+
 
 ## Задача 2 (4.3)
 
@@ -509,9 +526,9 @@ arr=[1,-2,-7,4,2,2,5]
 
 ### Тестирование
 
-<img width="458" height="139" alt="image" src="https://github.com/user-attachments/assets/ce570fc2-c9ee-40e4-bd8a-81a1d63ee18b" />  
-<img width="467" height="276" alt="image" src="https://github.com/user-attachments/assets/202cddb5-5e63-4293-a9f0-211c3455a0cf" />  
-<img width="450" height="228" alt="image" src="https://github.com/user-attachments/assets/29ed355f-e393-49da-901f-8e11ceee3855" />
+<img width="483" height="149" alt="image" src="https://github.com/user-attachments/assets/c8ebaf1c-3a1a-4a8d-886e-c6a13880b9b5" />
+<img width="784" height="200" alt="image" src="https://github.com/user-attachments/assets/8c99870a-b76c-4866-bf34-23b70340a753" />
+<img width="437" height="209" alt="image" src="https://github.com/user-attachments/assets/8bd18760-d083-4e26-9622-74d7cd4c45a8" />
 
 ## Задача 3 (4.5)
 
@@ -544,7 +561,9 @@ pos=3
 
 ### Тестирование
 
-Скриншоты результата работы программы
+<img width="469" height="224" alt="image" src="https://github.com/user-attachments/assets/4ccecab7-ffac-42f6-aeb5-e2bfd3aacafa" />
+<img width="545" height="320" alt="image" src="https://github.com/user-attachments/assets/769d8b70-6f4f-457e-9c6f-3ae1ea4cd33a" />
+<img width="539" height="272" alt="image" src="https://github.com/user-attachments/assets/3fb852f9-e335-47e6-9105-ac6ef47e0d34" />
 
 ## Задача 4 (4.7)
 
@@ -569,7 +588,10 @@ arr=[1,2,3,4,5]
 
 ### Тестирование
 
-Скриншоты результата работы программы
+<img width="457" height="149" alt="image" src="https://github.com/user-attachments/assets/9244e21b-a160-456c-9669-b273327ef0d5" />
+<img width="595" height="161" alt="image" src="https://github.com/user-attachments/assets/00ce243b-5745-45d4-ad5b-e68fdf547cb2" />
+<img width="479" height="163" alt="image" src="https://github.com/user-attachments/assets/71bc32a8-424f-41a5-8531-c473ec11ba71" />
+
 
 ## Задача 5 (4.9)
 
@@ -597,4 +619,6 @@ x=2
 
 ### Тестирование
 
-Скриншоты результата работы программы
+<img width="550" height="185" alt="image" src="https://github.com/user-attachments/assets/00e3929f-ae0c-49dd-a385-0570e781ec14" />
+<img width="887" height="211" alt="image" src="https://github.com/user-attachments/assets/3d50645c-5fd2-4369-aab4-2e8b68e7ad5f" />
+<img width="441" height="174" alt="image" src="https://github.com/user-attachments/assets/fb4b7db5-6fc3-49cf-a8ea-60422907b358" />
