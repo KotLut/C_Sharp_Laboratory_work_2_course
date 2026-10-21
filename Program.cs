@@ -6,17 +6,16 @@ namespace LK_LABA2_CSHARP
     {
         static void Main()
         {
-            InputValidator validator = new InputValidator();
-            Utils utils = new Utils();
             ScreenUtils.Initialize();
+            InputValidator validator = new InputValidator();
+            Utils utils = new Utils();           
 
             bool isRun = true;
-
             do
             {
                 Console.Clear();
                 ScreenUtils.DrawPicture("laba");
-                ScreenUtils.PaintLine("\n\tЛАБОРАТОРНАЯ РАБОТА 2", Color.Cyan);
+                ScreenUtils.PaintHeader("\n\tЛАБОРАТОРНАЯ РАБОТА 2");
                 Console.WriteLine("\tВыберите задачу:");
                 Console.WriteLine("\t1) Задание 1.1 - Время");
                 Console.WriteLine("\t2) Задание 1.2 - Дом");
@@ -33,11 +32,10 @@ namespace LK_LABA2_CSHARP
                 {
                     case 1:
                         bool isTask11Run = true;
-
                         do
                         {
                             Console.Clear();
-                            Console.WriteLine("\n\tЗадание 1.1 - Время");
+                            ScreenUtils.PaintHeader("\n\tЗадание 1.1 - Время");
                             Console.WriteLine("\t1) Использовать значения из примеров");
                             Console.WriteLine("\t2) Ввести своё время");
                             Console.WriteLine("\t0) Назад");
@@ -49,7 +47,7 @@ namespace LK_LABA2_CSHARP
                             {
                                 case 1:
                                     Console.Clear();
-                                    Console.WriteLine("\t\t1.1 Со значениями из примеров");
+                                    ScreenUtils.PaintHeader("\t\t1.1 Со значениями из примеров");
 
                                     Time time10 = new Time(10);
                                     Time time10000 = new Time(10000);
@@ -79,7 +77,7 @@ namespace LK_LABA2_CSHARP
                                     break;
 
                                 default:
-                                    Console.WriteLine("\tНекорректный выбор!");
+                                    ScreenUtils.PrintError("\tНекорректный выбор!");
                                     utils.WaitForContinue();
                                     break;
                             }
@@ -89,11 +87,10 @@ namespace LK_LABA2_CSHARP
 
                     case 2:
                         bool isTask12Run = true;
-
                         do
                         {
                             Console.Clear();
-                            Console.WriteLine("\n\tЗадание 1.2 - Дом");
+                            ScreenUtils.PaintHeader("\n\tЗадание 1.2 - Дом");
                             Console.WriteLine("\t1) Использовать значения из примеров");
                             Console.WriteLine("\t2) Ввести своё количество этажей");
                             Console.WriteLine("\t0) Назад");
@@ -105,7 +102,7 @@ namespace LK_LABA2_CSHARP
                             {
                                 case 1:
                                     Console.Clear();
-                                    Console.WriteLine("\t\t1.2 Использовать значения из примеров");
+                                    ScreenUtils.PaintHeader("\t\t1.2 Использовать значения из примеров");
 
                                     House house1 = new House(1);
                                     House house5 = new House(5);
@@ -119,7 +116,7 @@ namespace LK_LABA2_CSHARP
 
                                 case 2:
                                     Console.Clear();
-                                    Console.WriteLine("\t\t1.2 Свой дом");
+                                    ScreenUtils.PaintHeader("\t\t1.2 Свой дом");
                                     Console.Write("\tВведите количество этажей (1-200) >> ");
 
                                     int userFloors = validator.GetInt(1, 200);
@@ -135,7 +132,7 @@ namespace LK_LABA2_CSHARP
                                     break;
 
                                 default:
-                                    Console.WriteLine("\tНекорректный выбор!");
+                                    ScreenUtils.PrintError("\tНекорректный выбор!");
                                     utils.WaitForContinue();
                                     break;
                             }
@@ -145,11 +142,10 @@ namespace LK_LABA2_CSHARP
 
                     case 3:
                         bool isTask2Run = true;
-
                         do
                         {
                             Console.Clear();
-                            Console.WriteLine("\n\tЗадание 2 - Сотрудники и отделы");
+                            ScreenUtils.PaintHeader("\n\tЗадание 2 - Сотрудники и отделы");
                             Console.WriteLine("\t1) Использовать значения из условия");
                             Console.WriteLine("\t2) Ввести своих сотрудников");
                             Console.WriteLine("\t0) Назад");
@@ -161,7 +157,7 @@ namespace LK_LABA2_CSHARP
                             {
                                 case 1:
                                     Console.Clear();
-                                    Console.WriteLine("\t\t2.1 Сотрудники со значениями из условия");
+                                    ScreenUtils.PaintHeader("\t\t2.1 Сотрудники со значениями из условия");
 
                                     Department itDepartment = new Department("IT");
 
@@ -181,7 +177,7 @@ namespace LK_LABA2_CSHARP
 
                                 case 2:
                                     Console.Clear();
-                                    Console.WriteLine("\t\t2.2 Свои сотрудники");
+                                    ScreenUtils.PaintHeader("\t\t2.2 Свои сотрудники");
                                     Console.Write("\tВведите название отдела >> ");
 
                                     string departmentTitle = validator.GetString();
@@ -222,7 +218,7 @@ namespace LK_LABA2_CSHARP
                                     break;
 
                                 default:
-                                    Console.WriteLine("\tНекорректный выбор!");
+                                    ScreenUtils.PrintError("\tНекорректный выбор!");
                                     utils.WaitForContinue();
                                     break;
                             }
@@ -232,11 +228,10 @@ namespace LK_LABA2_CSHARP
 
                     case 4:
                         bool isTask3Run = true;
-
                         do
                         {
                             Console.Clear();
-                            Console.WriteLine("\n\tЗадание 3 - Список сотрудников отдела");
+                            ScreenUtils.PaintHeader("\n\tЗадание 3 - Список сотрудников отдела");
                             Console.WriteLine("\t1) Использовать значения из условия");
                             Console.WriteLine("\t2) Ввести свой отдел");
                             Console.WriteLine("\t0) Назад");
@@ -248,7 +243,7 @@ namespace LK_LABA2_CSHARP
                             {
                                 case 1:
                                     Console.Clear();
-                                    Console.WriteLine("\t\t3.1 Список сотрудников отдела");
+                                    ScreenUtils.PaintHeader("\t\t3.1 Список сотрудников отдела");
 
                                     Department itDepartment = new Department("IT");
 
@@ -268,7 +263,7 @@ namespace LK_LABA2_CSHARP
 
                                 case 2:
                                     Console.Clear();
-                                    Console.WriteLine("\t\t3.2 Свой отдел");
+                                    ScreenUtils.PaintHeader("\t\t3.2 Свой отдел");
                                     Console.Write("\tВведите название отдела >> ");
 
                                     string listDepartmentTitle = validator.GetString();
@@ -300,7 +295,7 @@ namespace LK_LABA2_CSHARP
                                     break;
 
                                 default:
-                                    Console.WriteLine("\tНекорректный выбор!");
+                                    ScreenUtils.PrintError("\tНекорректный выбор!");
                                     utils.WaitForContinue();
                                     break;
                             }
@@ -310,11 +305,10 @@ namespace LK_LABA2_CSHARP
 
                     case 5:
                         bool isTask4Run = true;
-
                         do
                         {
                             Console.Clear();
-                            Console.WriteLine("\n\tЗадание 4 - Дом без изменения этажей");
+                            ScreenUtils.PaintHeader("\n\tЗадание 4 - Дом без изменения этажей");
                             Console.WriteLine("\t1) Использовать значения из условия");
                             Console.WriteLine("\t2) Создать свой дом");
                             Console.WriteLine("\t3) Попытка изменить количество этажей");
@@ -327,7 +321,7 @@ namespace LK_LABA2_CSHARP
                             {
                                 case 1:
                                     Console.Clear();
-                                    Console.WriteLine("\t\t4.1 Значения из условия");
+                                    ScreenUtils.PaintHeader("\t\t4.1 Значения из условия");
 
                                     House fixedHouse2 = new House(2);
                                     House fixedHouse35 = new House(35);
@@ -341,7 +335,7 @@ namespace LK_LABA2_CSHARP
 
                                 case 2:
                                     Console.Clear();
-                                    Console.WriteLine("\t\t4.2 Свой дом");
+                                    ScreenUtils.PaintHeader("\t\t4.2 Свой дом");
                                     Console.Write("\tВведите количество этажей (1-1000) >> ");
 
                                     int fixedFloors = validator.GetInt(1, 1000);
@@ -354,7 +348,7 @@ namespace LK_LABA2_CSHARP
 
                                 case 3:
                                     Console.Clear();
-                                    Console.WriteLine("\t\t4.3 Попытка изменить количество этажей");
+                                    ScreenUtils.PaintHeader("\t\t4.3 Попытка изменить количество этажей");
 
                                     House fixedSample = new House(35);
 
@@ -367,7 +361,7 @@ namespace LK_LABA2_CSHARP
                                     }
                                     catch (InvalidOperationException exception)
                                     {
-                                        Console.WriteLine("\n\tНе получилось :(");
+                                        ScreenUtils.PaintLine("\n\tНе получилось :(", Color.Yellow);
                                         Console.WriteLine($"\tПричина: {exception.Message}");
                                     }
 
@@ -380,7 +374,7 @@ namespace LK_LABA2_CSHARP
                                     break;
 
                                 default:
-                                    Console.WriteLine("\tНекорректный выбор!");
+                                    ScreenUtils.PrintError("\tНекорректный выбор!");
                                     utils.WaitForContinue();
                                     break;
                             }
@@ -390,11 +384,10 @@ namespace LK_LABA2_CSHARP
 
                     case 6:
                         bool isTask5Run = true;
-
                         do
                         {
                             Console.Clear();
-                            Console.WriteLine("\n\tЗадание 5 - Пистолет");
+                            ScreenUtils.PaintHeader("\n\tЗадание 5 - Пистолет");
                             Console.WriteLine("\t1) Использовать значения из условия");
                             Console.WriteLine("\t2) Пистолет без указания патронов");
                             Console.WriteLine("\t3) Свой пистолет");
@@ -419,7 +412,7 @@ namespace LK_LABA2_CSHARP
 
                                 case 2:
                                     Console.Clear();
-                                    Console.WriteLine("\t\t5.2 Пистолет без указания патронов");
+                                    ScreenUtils.PaintHeader("\t\t5.2 Пистолет без указания патронов");
 
                                     Gun gunDefault = new Gun();
 
@@ -431,7 +424,7 @@ namespace LK_LABA2_CSHARP
 
                                 case 3:
                                     Console.Clear();
-                                    Console.WriteLine("\t\t5.3 Свой пистолет");
+                                    ScreenUtils.PaintHeader("\t\t5.3 Свой пистолет");
                                     Console.Write("\tВведите количество патронов (0-100) >> ");
 
                                     int userBullets = validator.GetInt(0, 100);
@@ -453,7 +446,7 @@ namespace LK_LABA2_CSHARP
                                     break;
 
                                 default:
-                                    Console.WriteLine("\tНекорректный выбор!");
+                                    ScreenUtils.PrintError("\tНекорректный выбор!");
                                     utils.WaitForContinue();
                                     break;
                             }
