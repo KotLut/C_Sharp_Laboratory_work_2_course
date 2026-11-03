@@ -22,6 +22,10 @@ namespace LK_LABA3_CSHARP
                 Console.WriteLine("\t2) Задание 2 - Кратчайший путь в матрице");
                 Console.WriteLine("\t3) Задание 3 - Матричные выражения");
                 Console.WriteLine("\t4) Задание 4 - Бинарные файлы (кратные k)");
+                Console.WriteLine("\t5) Задание 5 - Бинарные файлы и структуры (игрушки)");
+                Console.WriteLine("\t6) Задание 6 - Текстовые файлы (сумма по индексу)");
+                Console.WriteLine("\t7) Задание 7 - Текстовые файлы (произведение кратных k)");
+                Console.WriteLine("\t8) Задание 8 - Текстовые файлы (фильтрация строк)");
                 Console.WriteLine("\t0) Выход из программы");
                 ScreenUtils.Paint("\tВыберите действие >> ", Color.Cyan);
 
@@ -38,7 +42,6 @@ namespace LK_LABA3_CSHARP
                             Console.WriteLine("\t1) Массив n x m, ввод с клавиатуры по столбцам");
                             Console.WriteLine("\t2) Массив n x n, случайные четырёхзначные числа из чётных цифр");
                             Console.WriteLine("\t3) Массив n x n по образцу");
-                            Console.WriteLine("\t4) Найти кратчайший путь между мин. и макс. элементами");
                             Console.WriteLine("\t0) Назад");
                             ScreenUtils.Paint("\tВыберите подзадачу >> ", Color.Yellow);
 
@@ -182,6 +185,112 @@ namespace LK_LABA3_CSHARP
                         FileTasks.PrintBinaryFile("data.bin");
                         Console.WriteLine();
                         FileTasks.PrintBinaryFile("filtered.bin");
+
+                        utils.WaitForContinue();
+                        break;
+
+                    case 5:
+                        Console.Clear();
+                        ScreenUtils.PaintHeader("\n\tЗадание 5 - Бинарные файлы и структуры (игрушки)");
+
+                        Console.Write("\tВведите количество игрушек (1-100) >> ");
+                        int toysCount = validator.GetInt(1, 100);
+
+                        Console.WriteLine();
+                        FileTasks.CreateToysFile("toys.xml", toysCount, random);
+                        Console.WriteLine();
+                        FileTasks.PrintToysFile("toys.xml");
+                        Console.WriteLine();
+                        FileTasks.FindMostExpensiveConstructor("toys.xml");
+
+                        utils.WaitForContinue();
+                        break;
+
+                    case 6:
+                        Console.Clear();
+                        ScreenUtils.PaintHeader("\n\tЗадание 6 - Текстовые файлы (сумма по индексу)");
+
+                        Console.Write("\tВведите количество чисел (1-100) >> ");
+                        int numbersCount = validator.GetInt(1, 100);
+
+                        Console.Write("\tВведите минимальное значение (-1000 до 1000) >> ");
+                        int minVal = validator.GetInt(-1000, 1000);
+
+                        Console.Write("\tВведите максимальное значение (-1000 до 1000) >> ");
+                        int maxVal = validator.GetInt(-1000, 1000);
+
+                        while (maxVal < minVal)
+                        {
+                            ScreenUtils.PrintError("\tМаксимум должен быть больше минимума :(");
+                            Console.Write("\tПовторите ввод максимального значения >> ");
+                            maxVal = validator.GetInt(-1000, 1000);
+                        }
+
+                        Console.WriteLine();
+                        FileTasks.CreateNumbersFile("numbers.txt", numbersCount, minVal, maxVal, random);
+                        Console.WriteLine();
+                        FileTasks.PrintNumbersFile("numbers.txt");
+                        Console.WriteLine();
+                        FileTasks.FindSumEqualIndex("numbers.txt");
+
+                        utils.WaitForContinue();
+                        break;
+
+                    case 7:
+                        Console.Clear();
+                        ScreenUtils.PaintHeader("\n\tЗадание 7 - Текстовые файлы (произведение кратных k)");
+
+                        Console.Write("\tВведите количество строк (1-50) >> ");
+                        int linesCount = validator.GetInt(1, 50);
+
+                        Console.Write("\tВведите минимальное значение (-1000 до 1000) >> ");
+                        int minVal7 = validator.GetInt(-1000, 1000);
+
+                        Console.Write("\tВведите максимальное значение (-1000 до 1000) >> ");
+                        int maxVal7 = validator.GetInt(-1000, 1000);
+
+                        while (maxVal7 < minVal7)
+                        {
+                            ScreenUtils.PrintError("\tМаксимум должен быть больше минимума :(");
+                            Console.Write("\tПовторите ввод максимального значения >> ");
+                            maxVal7 = validator.GetInt(-1000, 1000);
+                        }
+
+                        Console.Write("\tВведите делитель k (не равно 0) >> ");
+                        int k7 = validator.GetInt();
+
+                        while (k7 == 0)
+                        {
+                            ScreenUtils.PrintError("\tДелитель не может быть равен 0 :(");
+                            Console.Write("\tПовторите ввод >> ");
+                            k7 = validator.GetInt();
+                        }
+
+                        Console.WriteLine();
+                        FileTasks.CreateMultiNumbersFile("multi_numbers.txt", linesCount, minVal7, maxVal7, random);
+                        Console.WriteLine();
+                        FileTasks.PrintMultiNumbersFile("multi_numbers.txt");
+                        Console.WriteLine();
+                        FileTasks.FindProductDivisibleByK("multi_numbers.txt", k7);
+
+                        utils.WaitForContinue();
+                        break;
+
+                    case 8:
+                        Console.Clear();
+                        ScreenUtils.PaintHeader("\n\tЗадание 8 - Текстовые файлы (фильтрация строк)");
+
+                        Console.Write("\tВведите количество строк (1-50) >> ");
+                        int textLinesCount = validator.GetInt(1, 50);
+
+                        Console.WriteLine();
+                        FileTasks.CreateTextFile("text.txt", textLinesCount, random);
+                        Console.WriteLine();
+                        FileTasks.PrintTextFile("text.txt");
+                        Console.WriteLine();
+                        FileTasks.FilterLinesWithoutRussian("text.txt", "filtered_text.txt");
+                        Console.WriteLine();
+                        FileTasks.PrintTextFile("filtered_text.txt");
 
                         utils.WaitForContinue();
                         break;

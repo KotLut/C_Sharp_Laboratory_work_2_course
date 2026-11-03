@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Collections.Generic;
 
 namespace LK_LABA3_CSHARP
 {
