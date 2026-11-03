@@ -19,6 +19,9 @@ namespace LK_LABA3_CSHARP
                 ScreenUtils.PaintHeader("\n\tЛАБОРАТОРНАЯ РАБОТА 3");
                 Console.WriteLine("\tВыберите задачу:");
                 Console.WriteLine("\t1) Задание 1 - Заполнение двумерных массивов");
+                Console.WriteLine("\t2) Задание 2 - Кратчайший путь в матрице");
+                Console.WriteLine("\t3) Задание 3 - Матричные выражения");
+                Console.WriteLine("\t4) Задание 4 - Бинарные файлы (кратные k)");
                 Console.WriteLine("\t0) Выход из программы");
                 ScreenUtils.Paint("\tВыберите действие >> ", Color.Cyan);
 
@@ -35,6 +38,7 @@ namespace LK_LABA3_CSHARP
                             Console.WriteLine("\t1) Массив n x m, ввод с клавиатуры по столбцам");
                             Console.WriteLine("\t2) Массив n x n, случайные четырёхзначные числа из чётных цифр");
                             Console.WriteLine("\t3) Массив n x n по образцу");
+                            Console.WriteLine("\t4) Найти кратчайший путь между мин. и макс. элементами");
                             Console.WriteLine("\t0) Назад");
                             ScreenUtils.Paint("\tВыберите подзадачу >> ", Color.Yellow);
 
@@ -98,6 +102,88 @@ namespace LK_LABA3_CSHARP
                             }
                         } while (isTask1Run);
 
+                        break;
+
+                    case 2:
+                        Console.Clear();
+                        ScreenUtils.PaintHeader("\t\tЗАДАНИЕ 2: Кратчайший путь между мин и макс");
+                        Console.Write("\tВведите размер n (1-10) >> ");
+
+                        int pathSize = validator.GetInt(1, 10);
+
+                        Matrix pathMatrix = new Matrix(pathSize, random);
+
+                        Console.WriteLine($"\n{pathMatrix}");
+
+                        Console.WriteLine(pathMatrix.FindShortestPath());
+
+                        utils.WaitForContinue();
+                        break;
+
+                    case 3:
+                        Console.Clear();
+                        ScreenUtils.PaintHeader("\n\tЗадание 3 - Матричные выражения A^T - (B + C^T)");
+                        Console.Write("\tВведите размер матриц n x n (1-10) >> ");
+                        int matrixSize = validator.GetInt(1, 10);
+
+                        Console.WriteLine("\n\tСоздаём матрицу A (случайные числа):");
+                        Matrix matrixA = new Matrix(matrixSize, random);
+                        Console.WriteLine($"\n{matrixA}");
+
+                        Console.WriteLine("\n\tСоздаём матрицу B (случайные числа):");
+                        Matrix matrixB = new Matrix(matrixSize, random);
+                        Console.WriteLine($"\n{matrixB}");
+
+                        Console.WriteLine("\n\tСоздаём матрицу C (по образцу):");
+                        Matrix matrixC = new Matrix(matrixSize);
+                        Console.WriteLine($"\n{matrixC}");
+
+                        Console.WriteLine("\n\tВычисляем выражение A^T - (B + C^T):");
+                        Matrix result = matrixA.Transpose() - (matrixB + matrixC.Transpose());
+                        Console.WriteLine($"\n{result}");
+
+                        utils.WaitForContinue();
+                        break;
+
+                    case 4:
+                        Console.Clear();
+                        ScreenUtils.PaintHeader("\n\tЗадание 4 - Бинарные файлы (кратные k)");
+
+                        Console.Write("\tВведите количество чисел (1-100) >> ");
+                        int fileCount = validator.GetInt(1, 100);
+
+                        Console.Write("\tВведите минимальное значение (-1000 до 1000) >> ");
+                        int minValue = validator.GetInt(-1000, 1000);
+
+                        Console.Write("\tВведите максимальное значение (-1000 до 1000) >> ");
+                        int maxValue = validator.GetInt(-1000, 1000);
+
+                        while (maxValue < minValue)
+                        {
+                            ScreenUtils.PrintError("\tМаксимум должен быть больше минимума :(");
+                            Console.Write("\tПовторите ввод максимального значения >> ");
+                            maxValue = validator.GetInt(-1000, 1000);
+                        }
+
+                        Console.Write("\tВведите делитель k (не равно 0) >> ");
+                        int k = validator.GetInt();
+
+                        while (k == 0)
+                        {
+                            ScreenUtils.PrintError("\tДелитель не может быть равен 0 :(");
+                            Console.Write("\tПовторите ввод >> ");
+                            k = validator.GetInt();
+                        }
+
+                        Console.WriteLine();
+                        FileTasks.CreateBinaryFile("data.bin", fileCount, minValue, maxValue, random);
+                        FileTasks.FilterBinaryFile("data.bin", "filtered.bin", k);
+                        Console.WriteLine();
+                        FileTasks.PrintBinaryFile("data.bin");
+                        Console.WriteLine();
+                        FileTasks.PrintBinaryFile("filtered.bin");
+
+                        utils.WaitForContinue();
                         break;
 
                     case 0:
