@@ -61,7 +61,7 @@ namespace LK_LABA3_CSHARP
             switch (name)
             {
                 case "laba":
-                    color = Color.Yellow;
+                    color = Color.TotalYellow;
                     picture = """
 
                         ····································
