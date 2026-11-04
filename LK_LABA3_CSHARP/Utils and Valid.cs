@@ -113,35 +113,6 @@ namespace LK_LABA3_CSHARP
             ScreenUtils.Paint("\n\tВведите что-нибудь для продолжения >> ", Color.Gray);
             Console.ReadLine();
         }
-
-        public int[] GenerateArray(int length)
-        {
-            int[] array = new int[length];
-
-            Random random = new Random();
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = random.Next(-10, 11);
-            }
-
-            return array;
-        }
-
-        public void PrintArray(int[] array)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.Write(array[i]);
-
-                if (i < array.Length - 1)
-                {
-                    Console.Write(", ");
-                }
-            }
-
-            Console.WriteLine();
-        }
     }
 
     public class InputValidator

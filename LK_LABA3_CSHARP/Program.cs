@@ -109,7 +109,7 @@ namespace LK_LABA3_CSHARP
 
                     case 2:
                         Console.Clear();
-                        ScreenUtils.PaintHeader("\t\tЗАДАНИЕ 2: Кратчайший путь между мин и макс");
+                        ScreenUtils.PaintHeader("\t\tЗадание 2: Кратчайший путь между мин и макс");
                         Console.Write("\tВведите размер n (1-10) >> ");
 
                         int pathSize = validator.GetInt(1, 10);
@@ -163,7 +163,7 @@ namespace LK_LABA3_CSHARP
 
                         while (maxValue < minValue)
                         {
-                            ScreenUtils.PrintError("\tМаксимум должен быть больше минимума :(");
+                            ScreenUtils.PrintError("\tМаксимум должен быть не меньше минимума минимума :(");
                             Console.Write("\tПовторите ввод максимального значения >> ");
                             maxValue = validator.GetInt(-1000, 1000);
                         }
@@ -221,7 +221,7 @@ namespace LK_LABA3_CSHARP
 
                         while (maxVal < minVal)
                         {
-                            ScreenUtils.PrintError("\tМаксимум должен быть больше минимума :(");
+                            ScreenUtils.PrintError("\tМаксимум должен быть не меньше минимума минимума :(");
                             Console.Write("\tПовторите ввод максимального значения >> ");
                             maxVal = validator.GetInt(-1000, 1000);
                         }
@@ -251,7 +251,7 @@ namespace LK_LABA3_CSHARP
 
                         while (maxVal7 < minVal7)
                         {
-                            ScreenUtils.PrintError("\tМаксимум должен быть больше минимума :(");
+                            ScreenUtils.PrintError("\tМаксимум должен быть не меньше минимума минимума :(");
                             Console.Write("\tПовторите ввод максимального значения >> ");
                             maxVal7 = validator.GetInt(-1000, 1000);
                         }

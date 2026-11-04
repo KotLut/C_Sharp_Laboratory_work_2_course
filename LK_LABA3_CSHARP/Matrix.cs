@@ -234,7 +234,7 @@ namespace LK_LABA3_CSHARP
                 result.Append($"\t\t[{row + 1}, {col + 1}] = {_array[row, col]}");
                 if (i < path.Count - 1)
                 {
-                    result.Append(" →");
+                    result.Append(" ->");
                 }
                 result.AppendLine();
             }
@@ -249,7 +249,7 @@ namespace LK_LABA3_CSHARP
             {
                 for (int j = 0; j < Columns; j++)
                 {
-                    result._array[j, i] = result._array[i, j];
+                    result._array[j, i] = _array[i, j];
                 }
             }
             return result;
