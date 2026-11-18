@@ -27,6 +27,11 @@ namespace LABA_4
             HashSet<string> catalog;
             List<HashSet<string>> listeners;
 
+            string textPath = "text.txt";
+            HashSet<char> vowels;
+
+            string olympiadPath = "olympiad.txt";
+            string olympiadResult;
 
             do
             {
@@ -36,6 +41,8 @@ namespace LABA_4
                 Console.WriteLine("\t1) Задание 1 - Одинаковые элементы в списке");
                 Console.WriteLine("\t2) Задание 2 - Удаление первого вхождения");
                 Console.WriteLine("\t3) Задание 3 - Музыкальные предпочтения");
+                Console.WriteLine("\t4) Задание 4 - Гласные в одном слове");
+                Console.WriteLine("\t5) Задание 5 - Олимпиада");
                 Console.WriteLine("\t-1) Выход из программы");
                 ScreenUtils.Paint("\tВыберите действие >> ", Color.Cyan);
 
@@ -148,6 +155,60 @@ namespace LABA_4
                             CollectionTasks.GetLikedBySome(listeners));
                         CollectionTasks.PrintSet("Не нравятся никому: ",
                             CollectionTasks.GetLikedByNobody(catalog, listeners));
+
+                        utils.WaitForContinue();
+                        break;
+
+                    case 4:
+                        Console.Clear();
+                        ScreenUtils.PaintHeader("\n\tЗадание 4 - Гласные в одном слове");
+                        Console.Write("\tВведите количество строк текста " +
+                            "(1-5, 0 - сработает автозаполнение) >> ");
+                        count = validator.GetInt(0, 5);
+
+                        Console.WriteLine();
+
+                        if (count == 0)
+                        {
+                            CollectionTasks.CreateRandomTextFile(textPath, random);
+                        }
+                        else
+                        {
+                            CollectionTasks.CreateTextFileFromKeyboard(textPath, count, validator);
+                        }
+
+                        Console.WriteLine();
+                        CollectionTasks.PrintTextFile(textPath);
+
+                        vowels = CollectionTasks.FindVowelsInOneWord(textPath);
+                        CollectionTasks.PrintVowels(vowels);
+
+                        utils.WaitForContinue();
+                        break;
+
+                    case 5:
+                        Console.Clear();
+                        ScreenUtils.PaintHeader("\n\tЗадание 5 - Олимпиада");
+                        Console.Write("\tВведите количество участников " +
+                            "(1-30, 0 - сработает автозаполнение) >> ");
+                        count = validator.GetInt(0, 30);
+
+                        Console.WriteLine();
+
+                        if (count == 0)
+                        {
+                            CollectionTasks.CreateRandomOlympiadFile(olympiadPath, random);
+                        }
+                        else
+                        {
+                            CollectionTasks.CreateOlympiadFileFromKeyboard(olympiadPath, count, validator);
+                        }
+
+                        Console.WriteLine();
+                        CollectionTasks.PrintTextFile(olympiadPath);
+
+                        olympiadResult = CollectionTasks.FindBestNonWinner(olympiadPath);
+                        ScreenUtils.PaintLine($"\n\tОтвет: {olympiadResult}", Color.Green);
 
                         utils.WaitForContinue();
                         break;

@@ -18,6 +18,34 @@ namespace LABA_4
             "Billie Jean", "Catch You", "Tuesday", "Lose My Mind", "Numb"
         };
 
+        private static string _vowels = "аеёиоуыэюя";
+
+        private static char[] _separators =
+        {
+            ' ', ',', '.', '!', '?', ';', ':', '-', '—', '(', ')', '"', '\t', '\r', '\n'
+        };
+
+        private static string[] _textWords =
+        {
+            "ютуб", "века", "лось", "индекс", "ёршик", "ямка",
+            "ялта", "очень", "наследование", "пара", "лаба", "мама"
+        };
+
+        private static int _winnerScore = 200;
+
+        private static int _maxScore = 400;
+
+        private static string[] _surnames =
+        {
+            "Лётчик", "Комиссаренко", "Невзначай", "Апчхи", "Винкай",
+            "Дверидзе", "Сохранко", "Ясенченко", "Нулик", "Держим"
+        };
+
+        private static string[] _firstNames =
+        {
+            "Евпатий", "Алексий", "Афанасья", "Варфаломей", "Иннокентий", "Юлианна", "Игорь", "Антон"
+        };
+
         public static bool HasDuplicates(List<string> list)
         {
             for (int i = 0; i < list.Count - 1; i++)
@@ -288,6 +316,272 @@ namespace LABA_4
             {
                 PrintSet($"Меломан {i + 1}: ", listeners[i]);
             }
+        }
+
+        public static HashSet<char> FindVowelsInOneWord(string path)
+        {
+            HashSet<char> vowels = new HashSet<char>(_vowels);
+            HashSet<char> met = new HashSet<char>();
+            HashSet<char> repeated = new HashSet<char>();
+            HashSet<char> wordVowels;
+            HashSet<char> wordRepeated;
+            string text;
+            string[] words;
+
+            if (!File.Exists(path))
+            {
+                ScreenUtils.PrintError($"\tФайл {path} не найден :(");
+                return met;
+            }
+
+            using (StreamReader reader = new StreamReader(path))
+            {
+                text = reader.ReadToEnd();
+            }
+
+            words = text.ToLower().Split(_separators, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string word in words)
+            {
+                wordVowels = new HashSet<char>(word);
+                wordVowels.IntersectWith(vowels);
+
+                wordRepeated = new HashSet<char>(wordVowels);
+                wordRepeated.IntersectWith(met);
+
+                repeated.UnionWith(wordRepeated);
+                met.UnionWith(wordVowels);
+            }
+
+            met.ExceptWith(repeated);
+
+            return met;
+        }
+
+        public static void CreateRandomTextFile(string path, Random random)
+        {
+            int linesCount = random.Next(2, 5);
+            int wordsCount;
+            int index;
+
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                for (int i = 0; i < linesCount; i++)
+                {
+                    wordsCount = random.Next(3, 6);
+
+                    for (int j = 0; j < wordsCount; j++)
+                    {
+                        index = random.Next(_textWords.Length);
+                        writer.Write(_textWords[index] + " ");
+                    }
+
+                    writer.WriteLine();
+                }
+            }
+
+            ScreenUtils.PaintLine($"\tФайл {path} создан автозаполнением.", Color.Green);
+        }
+
+        public static void CreateTextFileFromKeyboard(
+            string path, int linesCount, InputValidator validator)
+        {
+            string line;
+
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                for (int i = 0; i < linesCount; i++)
+                {
+                    Console.Write($"\tСтрока {i + 1} >> ");
+                    line = validator.GetString();
+                    writer.WriteLine(line);
+                }
+            }
+
+            ScreenUtils.PaintLine($"\tФайл {path} создан.", Color.Green);
+        }
+
+        public static void PrintTextFile(string path)
+        {
+            string text;
+
+            if (!File.Exists(path))
+            {
+                ScreenUtils.PrintError($"\tФайл {path} не найден :(");
+                return;
+            }
+
+            using (StreamReader reader = new StreamReader(path))
+            {
+                text = reader.ReadToEnd();
+            }
+
+            Console.WriteLine($"Содержимое файла {path}:");
+            Console.WriteLine(text);
+        }
+
+        public static void PrintVowels(HashSet<char> vowels)
+        {
+            Console.Write("\tГласные, которые есть ровно в одном слове: ");
+
+            if (vowels.Count == 0)
+            {
+                Console.WriteLine("таких нет");
+                return;
+            }
+
+            foreach (char letter in _vowels)
+            {
+                if (vowels.Contains(letter))
+                {
+                    Console.Write(letter + " ");
+                }
+            }
+
+            Console.WriteLine();
+        }
+
+        public static string FindBestNonWinner(string path)
+        {
+            Dictionary<int, int> counts = new Dictionary<int, int>();
+            Dictionary<int, string> names = new Dictionary<int, string>();
+            string[] parts;
+            int participantsCount;
+            int score;
+            int bestScore = -1;
+            int secondScore = -1;
+            int targetScore;
+
+            if (!File.Exists(path))
+            {
+                ScreenUtils.PrintError($"\tФайл {path} не найден :(");
+                return "";
+            }
+
+            using (StreamReader reader = new StreamReader(path))
+            {
+                participantsCount = Convert.ToInt32(reader.ReadLine());
+
+                for (int i = 0; i < participantsCount; i++)
+                {
+                    parts = reader.ReadLine().Split(' ');
+                    score = Convert.ToInt32(parts[3]);
+
+                    if (counts.ContainsKey(score))
+                    {
+                        counts[score]++;
+                    }
+                    else
+                    {
+                        counts.Add(score, 1);
+                    }
+
+                    names[score] = parts[0] + " " + parts[1];
+                }
+            }
+
+            foreach (int key in counts.Keys)
+            {
+                if (key > bestScore)
+                {
+                    secondScore = bestScore;
+                    bestScore = key;
+                }
+                else if (key > secondScore)
+                {
+                    secondScore = key;
+                }
+            }
+
+            if (bestScore > _winnerScore && counts[bestScore] * 5 <= participantsCount)
+            {
+                targetScore = secondScore;
+            }
+            else
+            {
+                targetScore = bestScore;
+            }
+
+            if (counts[targetScore] == 1)
+            {
+                return "Лучший из не ставших победителями: " + names[targetScore];
+            }
+
+            return "Число искомых (лучших из не ставших победителями): " + counts[targetScore].ToString();
+        }
+
+        public static void CreateRandomOlympiadFile(string path, Random random)
+        {
+            int count = random.Next(5, 16);
+            int surnameIndex;
+            int nameIndex;
+            int schoolClass;
+            int score;
+
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                writer.WriteLine(count);
+
+                for (int i = 0; i < count; i++)
+                {
+                    surnameIndex = random.Next(_surnames.Length);
+                    nameIndex = random.Next(_firstNames.Length);
+                    schoolClass = random.Next(7, 12);
+                    score = random.Next(9) * 50;
+
+                    writer.WriteLine($"{_surnames[surnameIndex]} {_firstNames[nameIndex]} {schoolClass} {score}");
+                }
+            }
+
+            ScreenUtils.PaintLine($"\tФайл {path} создан автозаполнением.", Color.Green);
+        }
+
+        public static void CreateOlympiadFileFromKeyboard(
+            string path, int count, InputValidator validator)
+        {
+            string surname;
+            string firstName;
+            int schoolClass;
+            int score;
+
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                writer.WriteLine(count);
+
+                for (int i = 0; i < count; i++)
+                {
+                    Console.WriteLine($"\n\tУчастник {i + 1}:");
+                    surname = ReadWord("\tФамилия (до 20 символов) >> ", 20, validator);
+                    firstName = ReadWord("\tИмя (до 15 символов) >> ", 15, validator);
+
+                    Console.Write("\tКласс (7-11) >> ");
+                    schoolClass = validator.GetInt(7, 11);
+
+                    Console.Write($"\tБаллы (0-{_maxScore}) >> ");
+                    score = validator.GetInt(0, _maxScore);
+
+                    writer.WriteLine($"{surname} {firstName} {schoolClass} {score}");
+                }
+            }
+
+            ScreenUtils.PaintLine($"\n\tФайл {path} создан.", Color.Green);
+        }
+
+        private static string ReadWord(string message, int maxLength, InputValidator validator)
+        {
+            string word;
+
+            Console.Write(message);
+            word = validator.GetString();
+
+            while (word.Contains(' ') || word.Length > maxLength)
+            {
+                ScreenUtils.PrintError($"\tОдно слово без пробелов, не длиннее {maxLength} символов :(");
+                ScreenUtils.Paint("\tПовторите ввод >> ", Color.Yellow);
+                word = validator.GetString();
+            }
+
+            return word;
         }
 
     }
