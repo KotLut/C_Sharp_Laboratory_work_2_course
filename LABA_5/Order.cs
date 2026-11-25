@@ -55,7 +55,7 @@
             set { _cost = value; }
         }
 
-        private string FormatGroup(int number)
+        private static string FormatGroup(int number)
         {
             string result = number.ToString();
 
@@ -71,24 +71,17 @@
             return result;
         }
 
-        private string FormatCost()
+        public static string FormatMoney(long value)
         {
-            int _millions = _cost / 1000000;
-            int _thousands = _cost / 1000 % 1000;
-            int _units = _cost % 1000;
             string result;
 
-            if (_millions > 0)
+            if (value < 1000)
             {
-                result = _millions + " " + FormatGroup(_thousands) + " " + FormatGroup(_units);
-            }
-            else if (_thousands > 0)
-            {
-                result = _thousands + " " + FormatGroup(_units);
+                result = value.ToString();
             }
             else
             {
-                result = _units.ToString();
+                result = FormatMoney(value / 1000) + " " + FormatGroup((int)(value % 1000));
             }
 
             return result;
@@ -97,7 +90,7 @@
         public override string ToString()
         {
             return "Код: " + _id + ", услуга: " + _serviceId +
-                ", исполнитель: " + _performerId + ", стоимость: " + FormatCost();
+                ", исполнитель: " + _performerId + ", стоимость: " + FormatMoney(_cost);
         }
     }
 }
